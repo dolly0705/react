@@ -47,6 +47,8 @@ class Mou extends Component {
 
 
     }
+
+    
     handleInputChange(e) {
         this.setState({//react更新數據，固定使用setState這方法
             inputValue: e.target.value
