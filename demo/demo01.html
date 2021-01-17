@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button" id="like">喜歡</button>
+    <script>
+        var likeBtn = document.querySelector("#like");
+
+        var state = {    //原本的狀態
+            like: false
+        }
+
+        var setState = function(newState){  //變動的狀態
+            state = {
+                ...state,  //拿取原本狀態
+                ...newState   //加入新的，覆蓋舊的 
+            }
+            render()
+        }
+
+        var render = function () { 
+            if (state.like) {
+                likeBtn.innerHTML = "已讚";
+                likeBtn.style.color = "red";
+            } else {
+                likeBtn.innerHTML = "喜歡";
+                likeBtn.style.color = "black";
+            }
+        }
+
+        likeBtn.addEventListener('click',function(){
+            setState({
+                 like : !state.like
+            })
+
+        })
+
+
+
+
+        // likeBtn.addEventListener('click', function () {
+        //     if (likeBtn.innerHTML == "已讚") {
+        //         likeBtn.innerHTML = "喜歡";
+        //         likeBtn.style.color = "black";
+        //     } else {
+        //         likeBtn.innerHTML = "已讚";
+        //         likeBtn.style.color = "red";
+        //     }
+
+        // })
+    </script>
+</body>
+
+</html>
